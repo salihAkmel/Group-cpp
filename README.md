@@ -22,3 +22,14 @@ This program was developed using C++ and incorporates basic elements such as:
 - Pointers(passing by address)
 
 Compile and run the program using any C++ compiler.
+
+
+👥 Collaborators(2018-2nd year SE sec D)
+
+Name| ID
+RUHAMA HAILU  | ETS1267/17
+RUTH AYNADIS  | ETS1268/17
+SALIH AKMEL   | ETS1278/17
+SISAY ALEMU   | ETS1347/17
+YOHANNA ZENEBE| ETS1540/17
+
