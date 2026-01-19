@@ -18,6 +18,7 @@ int main() {
     int available_seats = TOTAL_SEATS;
     int choice;
     do {
+        cout<<"\nWELCOME TO OUR BUS SEAT RESERVATION SYSTEM! BELOW YOU WILL FIND THE MENU:";
         cout << "\n--- Bus Reservation Menu ---\n";
         cout << "1. Show available seats\n";
         cout << "2. Reserve a seat\n";
@@ -50,7 +51,7 @@ int main() {
 
 // Display the seating chart
 void showSeats(string seats[], int available_seats) {
-    cout << "\n------------------- Bus Seat Arrangement -------------------\n";
+    cout << "\n------- Bus Seat Arrangement -------\n";
     for (int i = 0; i < TOTAL_SEATS; i++) {
         if (seats[i].empty()) {
             // Available seat
