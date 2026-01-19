@@ -131,3 +131,30 @@ void reserveSeat(string seats[], int &available_seats) {
         cout << "Seats left: " << available_seats << "\n\n";
     }
 }
+
+// Cancel a reservation
+void cancelSeat(string seats[], int &available_seats) {
+    int seatNum;
+    cout << "Enter the seat number you want to cancel (1-50): ";
+    cin >> seatNum;
+    if (cin.fail()) {
+    cin.clear(); // clear error state
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // discard invalid input
+    cout << "\aInvalid input! Please enter a valid seat number.\n";
+    return;
+    }
+
+
+    if (seatNum < 1 || seatNum > TOTAL_SEATS) {
+        cout << "\aInvalid seat number!\n";
+        return;
+    }
+    if (seats[seatNum - 1].empty()) {
+        cout << "Seat is not reserved.\n";
+        return;
+    }
+
+    seats[seatNum - 1] = "";
+    available_seats++;
+    cout << "Reservation for seat " << seatNum << " has been cancelled.\n";
+}
