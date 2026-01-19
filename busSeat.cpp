@@ -158,3 +158,43 @@ void cancelSeat(string seats[], int &available_seats) {
     available_seats++;
     cout << "Reservation for seat " << seatNum << " has been cancelled.\n";
 }
+
+
+// Change a seat
+void changeSeat(string seats[]) {
+    int oldSeat, newSeat;
+    cout << "Enter the old seat number: ";
+    cin >> oldSeat;
+    if (cin.fail()) {
+    cin.clear(); // clear error state
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // discard invalid input
+    cout << "\aInvalid input! Please enter a valid seat number.\n";
+    return;
+    }
+
+    cout << "Enter the new seat number: ";
+    cin >> newSeat;
+    if (cin.fail()) {
+    cin.clear(); // clear error state
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // discard invalid input
+    cout << "\aInvalid input! Please enter a valid seat number.\n";
+    return;
+    }
+
+    if (oldSeat < 1 || oldSeat > TOTAL_SEATS || newSeat < 1 || newSeat > TOTAL_SEATS) {
+        cout << "\aInvalid seat number!\n";
+        return;
+    }
+    if (seats[oldSeat - 1].empty()) {
+        cout << "Old seat is not reserved.\n";
+        return;
+    }
+    if (!seats[newSeat - 1].empty()) {
+        cout << "Sorry, the new seat is already taken.\n";
+        return;
+    }
+
+    seats[newSeat - 1] = seats[oldSeat - 1];
+    seats[oldSeat - 1] = "";
+    cout << "Reservation changed from seat " << oldSeat << " to seat " << newSeat << ".\n";
+}
