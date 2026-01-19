@@ -46,3 +46,35 @@ int main() {
 
     return 0;
 }
+
+
+// Display the seating chart
+void showSeats(string seats[], int available_seats) {
+    cout << "\n------------------- Bus Seat Arrangement -------------------\n";
+    for (int i = 0; i < TOTAL_SEATS; i++) {
+        if (seats[i].empty()) {
+            // Available seat
+            if (i + 1 < 10) cout << "[ " << i + 1 << "]\t"; // spacing for single-digit
+            else cout << "[" << i + 1 << "]\t";
+        } else {
+            // Reserved seat
+            cout << "[X]\t";
+        }
+
+        // New row after every 5 seats
+        if ((i + 1) % 5 == 0) cout << endl;
+    }
+
+    cout << "\nTotal seats left: " << available_seats << "\n";
+
+    // Show reserved seat details
+    cout << "\n--- Reserved Seats ---\n";
+    bool anyReserved = false;
+    for (int i = 0; i < TOTAL_SEATS; i++) {
+        if (!seats[i].empty()) {
+            cout << "Seat " << i + 1 << ": " << seats[i] << endl;
+            anyReserved = true;
+        }
+    }
+    if (!anyReserved) cout << "No seats are reserved yet.\n";
+}
