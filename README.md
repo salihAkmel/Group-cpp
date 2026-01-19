@@ -19,5 +19,6 @@ This program was developed using C++ and incorporates basic elements such as:
 - Loops
 - Arrays
 - Functions
+- Pointers(passing by address)
 
 Compile and run the program using any C++ compiler.
